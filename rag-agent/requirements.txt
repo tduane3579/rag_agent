@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-anthropic
+chromadb
+pypdf
+python-dotenv
+anthropic
+sentence-transformers
+
