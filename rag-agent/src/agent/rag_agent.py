@@ -8,7 +8,7 @@ class ElliottWaveRAGAgent:
         self.retriever = retriever
         self.llm = ChatAnthropic(
             api_key=anthropic_api_key, 
-            model="claude-3-5-sonnet-20241022", 
+            model="claude-3-haiku-20240307", 
             temperature=0.7
         )
         
@@ -30,7 +30,7 @@ Context: {context}"""),
     
     def query(self, question: str) -> dict:
         answer = self.chain.invoke(question)
-        docs = self.retriever.get_relevant_documents(question)
+        docs = self.retriever.invoke(question)
         return {"answer": answer, "source_documents": docs}
     
     def chat(self):
